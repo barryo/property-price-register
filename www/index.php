@@ -96,15 +96,15 @@ if( isset( $year ) && isset( $county ) )
     <div class="row-fluid">
         <div class="span12">
             <form class="form-inline" method="GET" action="index.php">
-                <label><strong>Year:&nbsp;&nbsp;</strong><label>
-                <select class="chzn-select" name="year">
+                <label for="year"><strong>Year:&nbsp;&nbsp;</strong></label>
+                <select name="year" id="year">
                     <option value="all" <?php if( !isset( $year ) || $year == 'all' ){ echo "selected=\"selected\""; } ?>>All years</option>
                     <?php for( $y = 2010; $y <= 2012; $y++ ) { ?>
                         <option value="<?= $y ?>" <?php if( isset( $year ) && $year == $y ){ echo "selected=\"selected\""; } ?>><?= $y ?></option>
                     <?php } ?>
                 </select>
-                <label><strong>&nbsp;&nbsp;&nbsp;&nbsp;County:&nbsp;&nbsp;</strong><label>
-                <select class="chzn-select" name="county">
+                <label for="county"><strong>&nbsp;&nbsp;&nbsp;&nbsp;County:&nbsp;&nbsp;</strong></label>
+                <select name="county" id="county">
                     <option value="CARLOW" <?php if( isset( $county ) && $county == "CARLOW" ) { echo 'selected="selected"'; } ?>>CARLOW</option>
                     <option value="CAVAN" <?php if( isset( $county ) && $county == "CAVAN" ) { echo 'selected="selected"'; } ?>>CAVAN</option>
                     <option value="CLARE" <?php if( isset( $county ) && $county == "CLARE" ) { echo 'selected="selected"'; } ?>>CLARE</option>
@@ -186,14 +186,27 @@ if( isset( $year ) && isset( $county ) )
 
             <p>
                 This site is a quick hack by <a href="http://www.opensolutions.ie/">Open Solutions</a> to make the Residential Property 
-                Pricing database more easily accessible than the very poor and cumbersome effort by the 
+                Pricing database more easily accessible than the cumbersome effort by the 
                 <a href="http://propertypriceregister.ie/">Property Services Regulatory Authority</a> themselves.
+            </p>
+            
+            <p>
+                All property price data is the copyright of <a href="http://propertypriceregister.ie/website/npsra/ppr-home-en.html">The 
+                Property Services Regulatory Authority</a> and has been reused on this site in compliance of their conditions as
+                <a href="http://propertypriceregister.ie/website/npsra/ppr-copyright-en.html">set out here</a>.
             </p>
 
             <p>
                 This site is built using open source software from <a href="http://jquery.com/">jQuery</a>,
                 Twitter <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> and
-                <a href="http://datatables.net/">DataTables</a>.
+                <a href="http://datatables.net/">DataTables</a>. This site uses the aggregated data
+                provided by <a href="http://brianmlucey.wordpress.com/2012/09/30/full-property-price-details-ireland-jan-2010-sep-2012/">Brian
+                M. Lucey</a>.
+            </p>
+            
+            <p>
+                The code for this website is available under the <a href="http://opensource.org/licenses/BSD-3-Clause">New BSD License</a>
+                and can be accessed and downloaded from <a href="https://github.com/barryo/property-price-register">GitHub</a>.
             </p>
 
             <h3>Disclaimer</h3>
@@ -256,6 +269,19 @@ if( isset( $year ) && isset( $county ) )
         });
 
     </script>
+    
+    <!-- Piwik --> 
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.opensolutions.ie/" : "http://stats.opensolutions.ie/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 9);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://stats.opensolutions.ie/piwik.php?idsite=9" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tracking Code -->
   </body>
 </html>
 
