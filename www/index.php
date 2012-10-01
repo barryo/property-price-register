@@ -208,7 +208,16 @@ if( isset( $year ) && isset( $county ) )
                 The code for this website is available under the <a href="http://opensource.org/licenses/BSD-3-Clause">New BSD License</a>
                 and can be accessed and downloaded from <a href="https://github.com/barryo/property-price-register">GitHub</a>.
             </p>
-
+            
+            <h3>Other Versions</h3>
+            
+            <ul>
+                <li> <a href="http://propertypriceregister.ie/Website/npsra/pprweb.nsf/PPR?OpenForm">Official Version</a> </li>
+                <li> <a href="http://conoroneill.net/quick-n-dirty-visualisation-of-2010-property-price-register-data-into-interactive-map/">Google Maps Visualisation</a> </li>
+                <li> <a href="http://yellowschedule.com/house_price_database_ireland/">Another Search Interface (by YellowSchedule)</a> </li>
+                <li> <a href="http://salesporn.net/ppr/">salesporn.net</a> </li>
+            </ul>
+            
             <h3>Disclaimer</h3>
 
             <p>
