@@ -14,8 +14,8 @@ if( !( mysql_select_db( $dbname ) ) )
 if( isset( $_GET['year'] ) )
 {
     $year = trim( $_GET['year'] );
-    if( !in_array( $year, array( 2010, 2011, 2012, 'all' ) ) )
-        $year = 2012;
+    if( !in_array( $year, array( 2010, 2011, 2012, 2013, 'all' ) ) )
+        $year = 2013;
 }
 
 if( isset( $_GET['county'] ) )
@@ -99,7 +99,7 @@ if( isset( $year ) && isset( $county ) )
                 <label for="year"><strong>Year:&nbsp;&nbsp;</strong></label>
                 <select name="year" id="year">
                     <option value="all" <?php if( !isset( $year ) || $year == 'all' ){ echo "selected=\"selected\""; } ?>>All years</option>
-                    <?php for( $y = 2010; $y <= 2012; $y++ ) { ?>
+                    <?php for( $y = 2010; $y <= 2013; $y++ ) { ?>
                         <option value="<?= $y ?>" <?php if( isset( $year ) && $year == $y ){ echo "selected=\"selected\""; } ?>><?= $y ?></option>
                     <?php } ?>
                 </select>
@@ -175,6 +175,10 @@ if( isset( $year ) && isset( $county ) )
         <?php } else { ?>
 
             <h3>Warning!</h3>
+
+            <p>
+                <strong>Data last updated April 2013. Poke @barryo79 to freshen.</strong>
+            </p>
 
             <p>
                 This site uses client side processing to format, sort and search the results. This means that if, for example,

@@ -33,9 +33,15 @@ while( ( $r = fgetcsv( $fp, 4096, "," ) ) !== false )
     $m = substr( $r[0], 3, 2 );
     $d = substr( $r[0], 0, 2 );
 
-    $q = "INSERT INTO ppr VALUES ( 0, \"{$y}-{$m}-{$d}\", \"" . mysql_real_escape_string( $r[1] ) . "\", \""
-            . strtoupper( $r[2] ) . "\", {$r[3]}, " . ( strtoupper( $r[4] ) == 'YES' ? 1 : 0 ) . ", \""
-            . mysql_real_escape_string( $r[5] ) . "\" )\n";
+    $p = preg_replace( "/[^0-9\.]/", "", $r[4] );
+
+    $q = "INSERT INTO ppr VALUES ( 0, \"{$y}-{$m}-{$d}\", "
+            . "\"" . mysql_real_escape_string( $r[1] ) 
+                . ( strlen( $r[2] ) ? ", " . mysql_real_escape_string( $r[2] ) : '' ) . "\", "
+            . "\"" . strtoupper( $r[3] ) . "\", "
+            . ( strtoupper( $r[6] ) == 'YES' ? $p * 1.23 : $p ) . ", " 
+            . ( strtoupper( $r[5] ) == 'YES' ? 1 : 0 ) . ", "
+            . "\"" . mysql_real_escape_string( $r[7] ) . ( strlen( $r[8] ) ? " - " . mysql_real_escape_string( $r[8] ) : '' ) . "\" )\n";
 
     mysql_query( $q );
 }
